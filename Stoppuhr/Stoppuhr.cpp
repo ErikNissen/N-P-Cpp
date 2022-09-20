@@ -23,9 +23,30 @@ namespace Stoppuhr {
 		bool running = false;
 	public:
 		//Functions
-		void startTimer();
-		void stopTimer();
-		void resetTimer();
-		void printTimes();
+		void startTimer(){
+			if(!running){
+				start = std::chrono::high_resolution_clock::now();
+				running = true;
+			}
+		};
+		auto diff(auto start, auto end){
+			return end - start;
+		};
+		void stopTimer(){
+			if(running){
+				end = std::chrono::high_resolution_clock::now();
+				times.push_back(diff(start, end));
+				running = false;
+			}
+		};
+		void resetTimer(){
+			times.clear();
+		};
+		void printTimes(){
+			for(auto time : times){
+				std::cout << time.count() << std::endl;
+			}
+		};
+
 	};
 }
