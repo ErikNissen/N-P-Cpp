@@ -24,9 +24,11 @@ namespace Stoppuhr {
 	public:
 		//Functions
 		void startTimer();
+		void setTimer();
 		void stopTimer();
 		void resetTimer();
 		void printTimes();
+		auto diff(auto start, auto end);
 	};
 }
 
