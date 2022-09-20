@@ -9,6 +9,9 @@ Erstellt:       20.09.2022
 #ifndef AUFGABEN_STOPPUHR_HPP
 #define AUFGABEN_STOPPUHR_HPP
 
+#include <chrono>
+äinclude <vector>
+
 namespace Stoppuhr {
 	//Class
 	class Stoppuhr {
