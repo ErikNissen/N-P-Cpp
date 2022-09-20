@@ -10,7 +10,7 @@ Erstellt:       20.09.2022
 #define AUFGABEN_STOPPUHR_HPP
 
 #include <chrono>
-äinclude <vector>
+#include <vector>
 
 namespace Stoppuhr {
 	//Class
@@ -24,11 +24,14 @@ namespace Stoppuhr {
 	public:
 		//Functions
 		void startTimer();
+
 		void setTimer();
-		void stopTimer();
+
 		void resetTimer();
+
 		void printTimes();
-		auto diff(auto start, auto end);
+
+		int diff(std::chrono::time_point<std::chrono::high_resolution_clock> start, std::chrono::time_point<std::chrono::high_resolution_clock> end);
 	};
 }
 
