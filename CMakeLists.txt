@@ -3,4 +3,4 @@ project(Aufgaben)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(Aufgaben main.cpp)
+add_executable(Aufgaben main.cpp Stoppuhr/Stoppuhr.cpp Stoppuhr/Stoppuhr.hpp)
