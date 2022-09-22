@@ -10,13 +10,13 @@ Erstellt:       22.09.2022
 #define AUFGABEN_STOPPUHR_HPP
 
 #include <chrono>
-#include <vector>
+#include <map>
 
 namespace Stoppuhr{
 	class Stoppuhr{
 	public:
 		void startTimer();
-		void setTimer();
+		void roundTimer();
 		void printTimes();
 		void resetTimer();
 
@@ -25,7 +25,8 @@ namespace Stoppuhr{
 		std::chrono::time_point<std::chrono::system_clock> end;
 		std::chrono::time_point<std::chrono::system_clock> last;
 		std::chrono::time_point<std::chrono::system_clock> current;
-		std::vector<std::chrono::duration<double>> times;
+		std::map<int, std::chrono::duration<double>> times;
+
 	};
 }
 
