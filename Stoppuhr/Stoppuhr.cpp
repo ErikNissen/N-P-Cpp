@@ -3,36 +3,32 @@ Autor:          Erik Nissen
 Studiengang:    Informationstechnologie (INI)
 Matrikelnummer: 937388
 Datei:          Stoppuhr/Stoppuhr.cpp
-Erstellt:       20.09.2022
+Erstellt:       22.09.2022
 */
-
-//Includes
 #include <iostream>
-#include <chrono>
-#include <vector>
+#include "Stoppuhr.hpp"
 
-//Namespaces
-namespace Stoppuhr {
-	//Class
-	class Stoppuhr {
-	private:
-		//Variables
-		std::chrono::time_point<std::chrono::high_resolution_clock> start;
-		std::chrono::time_point<std::chrono::high_resolution_clock> end;
-		std::vector<std::chrono::duration<double>> times;
-		bool running = false;
-	public:
-		//Functions
-		void startTimer(){};
-
-		void setTimer(){};
-
-		void resetTimer(){};
-
-		void printTimes(){};
-
-		long long diff(std::chrono::time_point<std::chrono
-		::high_resolution_clock> start, std::chrono::time_point<std::chrono::high_resolution_clock> end){};
-
-	};
+namespace Stoppuhr{
+	void Stoppuhr::startTimer(){
+		std::cout << "Timer started" << std::endl;
+		start = std::chrono::system_clock::now();
+		last = start;
+	}
+	void Stoppuhr::setTimer(){
+		std::cout << "Timer set" << std::endl;
+		current = std::chrono::system_clock::now();
+		end = current;
+		times.push_back(current - last);
+	}
+	void Stoppuhr::printTimes() {
+		std::cout << "Printing times" << std::endl;
+		for (auto time : times) {
+			std::cout << time.count() << std::endl;
+		}
+	}
+	void Stoppuhr::resetTimer(){
+		std::cout << "Timer reset" << std::endl;
+		start = std::chrono::system_clock::now();
+		last = start;
+	}
 }
