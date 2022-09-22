@@ -2,8 +2,8 @@
 Autor:          Erik Nissen
 Studiengang:    Informationstechnologie (INI)
 Matrikelnummer: 937388
-Datei:          /Stoppuhr.hpp
-Erstellt:       20.09.2022
+Datei:          Stoppuhr/Stoppuhr.hpp
+Erstellt:       22.09.2022
 */
 
 #ifndef AUFGABEN_STOPPUHR_HPP
@@ -12,26 +12,20 @@ Erstellt:       20.09.2022
 #include <chrono>
 #include <vector>
 
-namespace Stoppuhr {
-	//Class
-	class Stoppuhr {
-	private:
-		//Variables
-		std::chrono::time_point<std::chrono::high_resolution_clock> start;
-		std::chrono::time_point<std::chrono::high_resolution_clock> end;
-		std::vector<std::chrono::duration<double>> times;
-		bool running = false;
+namespace Stoppuhr{
+	class Stoppuhr{
 	public:
-		//Functions
 		void startTimer();
-
 		void setTimer();
-
+		void printTimes();
 		void resetTimer();
 
-		void printTimes();
-
-		int diff(std::chrono::time_point<std::chrono::high_resolution_clock> start, std::chrono::time_point<std::chrono::high_resolution_clock> end);
+	private:
+		std::chrono::time_point<std::chrono::system_clock> start;
+		std::chrono::time_point<std::chrono::system_clock> end;
+		std::chrono::time_point<std::chrono::system_clock> last;
+		std::chrono::time_point<std::chrono::system_clock> current;
+		std::vector<std::chrono::duration<double>> times;
 	};
 }
 
